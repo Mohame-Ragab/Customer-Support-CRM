@@ -1,0 +1,13 @@
+using FluentValidation;
+
+namespace CustomerSupportCRM.Application.Features.Users.Commands.ForgotPassword;
+
+public sealed class ForgotPasswordCommandValidator : AbstractValidator<ForgotPasswordCommand>
+{
+    public ForgotPasswordCommandValidator()
+    {
+        RuleFor(x => x.Email)
+            .NotEmpty()
+            .EmailAddress();
+    }
+}

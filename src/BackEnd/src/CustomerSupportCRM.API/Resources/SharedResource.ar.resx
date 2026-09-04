@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ApiWelcomeMessage" xml:space="preserve">
+    <value>مرحباً بك في واجهة برمجة تطبيقات إدارة علاقات دعم العملاء.</value>
+  </data>
+  <data name="ResourceNotFound" xml:space="preserve">
+    <value>لم يتم العثور على المورد المطلوب.</value>
+  </data>
+  <data name="ValidationFailed" xml:space="preserve">
+    <value>حدث خطأ واحد أو أكثر في التحقق من صحة البيانات.</value>
+  </data>
+  <data name="UnauthorizedAccess" xml:space="preserve">
+    <value>يلزم تسجيل الدخول للوصول إلى هذا المورد.</value>
+  </data>
+  <data name="ForbiddenAccess" xml:space="preserve">
+    <value>ليس لديك صلاحية لتنفيذ هذا الإجراء.</value>
+  </data>
+  <data name="Conflict" xml:space="preserve">
+    <value>تعذر إتمام الطلب بسبب تعارض مع الحالة الحالية للمورد.</value>
+  </data>
+  <data name="UnexpectedError" xml:space="preserve">
+    <value>حدث خطأ غير متوقع أثناء معالجة طلبك.</value>
+  </data>
+  <data name="Auth_InvalidCredentials" xml:space="preserve">
+    <value>البريد الإلكتروني أو كلمة المرور غير صحيحة.</value>
+  </data>
+  <data name="Auth_EmailNotVerified" xml:space="preserve">
+    <value>يرجى التحقق من بريدك الإلكتروني قبل تسجيل الدخول.</value>
+  </data>
+  <data name="Auth_AccountLocked" xml:space="preserve">
+    <value>تم قفل الحساب مؤقتاً. حاول لاحقاً.</value>
+  </data>
+  <data name="current_password_incorrect" xml:space="preserve">
+    <value>كلمة المرور الحالية غير صحيحة.</value>
+  </data>
+  <data name="password_must_differ" xml:space="preserve">
+    <value>يجب أن تختلف كلمة المرور الجديدة عن الحالية.</value>
+  </data>
+  <data name="password_policy_violation" xml:space="preserve">
+    <value>كلمة المرور لا تستوفي متطلبات الأمان.</value>
+  </data>
+  <data name="Registration.EmailAlreadyExists" xml:space="preserve">
+    <value>عنوان البريد الإلكتروني هذا غير متاح.</value>
+  </data>
+  <data name="Registration.PasswordTooWeak" xml:space="preserve">
+    <value>كلمة المرور لا تستوفي متطلبات التعقيد.</value>
+  </data>
+  <data name="Auth.Verification.InvalidOrExpired" xml:space="preserve">
+    <value>رابط التحقق غير صحيح أو منتهي الصلاحية. يرجى طلب واحد جديد.</value>
+  </data>
+  <data name="Auth.Verification.Success" xml:space="preserve">
+    <value>تم التحقق من بريدك الإلكتروني.</value>
+  </data>
+  <data name="Auth.Verification.EmailSubject" xml:space="preserve">
+    <value>التحقق من بريدك الإلكتروني</value>
+  </data>
+  <data name="Auth.Verification.EmailBodyHtml" xml:space="preserve">
+    <value>&lt;p&gt;انقر &lt;a href="{0}"&gt;هنا&lt;/a&gt; للتحقق من عنوان بريدك الإلكتروني.&lt;/p&gt;</value>
+  </data>
+  <data name="ForgotPassword_GenericResponse" xml:space="preserve">
+    <value>إذا كان هناك حساب مرتبط بهذا البريد الإلكتروني، فقد تم إرسال رابط إعادة تعيين كلمة المرور.</value>
+  </data>
+  <data name="ForgotPassword_EmailSubject" xml:space="preserve">
+    <value>إعادة تعيين كلمة المرور</value>
+  </data>
+  <data name="ForgotPassword_EmailBodyHtml" xml:space="preserve">
+    <value>&lt;p&gt;انقر &lt;a href="{0}"&gt;هنا&lt;/a&gt; لإعادة تعيين كلمة المرور الخاصة بك. ينتهي هذا الرابط خلال 60 دقيقة.&lt;/p&gt;</value>
+  </data>
+  <data name="Auth.ResetPassword.InvalidToken" xml:space="preserve">
+    <value>رابط إعادة التعيين غير صالح أو منتهي الصلاحية.</value>
+  </data>
+</root>

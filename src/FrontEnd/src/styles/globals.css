@@ -1,0 +1,32 @@
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  /* MUI's CssBaseline (see app/providers/ThemeProvider.tsx) handles the rest
+     of the reset/typography - this file stays minimal on purpose. */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Responsive/overflow guard (platform/responsive-web-and-mobile-experience):
+   prevents any child element with a fixed/oversized width from producing
+   horizontal scroll on narrow (mobile) viewports. */
+html,
+body,
+#root {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+img,
+svg,
+video {
+  max-width: 100%;
+  height: auto;
+}

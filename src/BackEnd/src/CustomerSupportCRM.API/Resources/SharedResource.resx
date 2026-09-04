@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ApiWelcomeMessage" xml:space="preserve">
+    <value>Welcome to the Customer Support CRM API.</value>
+  </data>
+  <data name="ResourceNotFound" xml:space="preserve">
+    <value>The requested resource was not found.</value>
+  </data>
+  <data name="ValidationFailed" xml:space="preserve">
+    <value>One or more validation errors occurred.</value>
+  </data>
+  <data name="UnauthorizedAccess" xml:space="preserve">
+    <value>Authentication is required to access this resource.</value>
+  </data>
+  <data name="ForbiddenAccess" xml:space="preserve">
+    <value>You do not have permission to perform this action.</value>
+  </data>
+  <data name="Conflict" xml:space="preserve">
+    <value>The request could not be completed due to a conflict with the current state of the resource.</value>
+  </data>
+  <data name="UnexpectedError" xml:space="preserve">
+    <value>An unexpected error occurred while processing your request.</value>
+  </data>
+  <data name="Auth_InvalidCredentials" xml:space="preserve">
+    <value>Invalid email or password.</value>
+  </data>
+  <data name="Auth_EmailNotVerified" xml:space="preserve">
+    <value>Please verify your email before signing in.</value>
+  </data>
+  <data name="Auth_AccountLocked" xml:space="preserve">
+    <value>Your account is temporarily locked. Try again later.</value>
+  </data>
+  <data name="current_password_incorrect" xml:space="preserve">
+    <value>The current password is incorrect.</value>
+  </data>
+  <data name="password_must_differ" xml:space="preserve">
+    <value>The new password must be different from the current password.</value>
+  </data>
+  <data name="password_policy_violation" xml:space="preserve">
+    <value>The password does not meet security requirements.</value>
+  </data>
+  <data name="Registration.EmailAlreadyExists" xml:space="preserve">
+    <value>This email address is not available.</value>
+  </data>
+  <data name="Registration.PasswordTooWeak" xml:space="preserve">
+    <value>Password does not meet complexity requirements.</value>
+  </data>
+  <data name="Auth.Verification.InvalidOrExpired" xml:space="preserve">
+    <value>The verification link is invalid or has expired. Please request a new one.</value>
+  </data>
+  <data name="Auth.Verification.Success" xml:space="preserve">
+    <value>Your email has been verified.</value>
+  </data>
+  <data name="Auth.Verification.EmailSubject" xml:space="preserve">
+    <value>Verify your email</value>
+  </data>
+  <data name="Auth.Verification.EmailBodyHtml" xml:space="preserve">
+    <value>&lt;p&gt;Click &lt;a href="{0}"&gt;here&lt;/a&gt; to verify your email address.&lt;/p&gt;</value>
+  </data>
+  <data name="ForgotPassword_GenericResponse" xml:space="preserve">
+    <value>If an account exists for that email, a password reset link has been sent.</value>
+  </data>
+  <data name="ForgotPassword_EmailSubject" xml:space="preserve">
+    <value>Reset your password</value>
+  </data>
+  <data name="ForgotPassword_EmailBodyHtml" xml:space="preserve">
+    <value>&lt;p&gt;Click &lt;a href="{0}"&gt;here&lt;/a&gt; to reset your password. This link expires in 60 minutes.&lt;/p&gt;</value>
+  </data>
+  <data name="Auth.ResetPassword.InvalidToken" xml:space="preserve">
+    <value>The reset link is invalid or has expired.</value>
+  </data>
+</root>

@@ -1,0 +1,14 @@
+## .NET
+bin/
+obj/
+*.user
+
+## Rider / VS
+.vs/
+.idea/
+
+## Local secrets — never commit real connection strings/JWT keys
+appsettings.*.local.json
+
+## Customer attachment uploads (customers/manage-customer-attachments) — local file storage, never committed
+App_Data/

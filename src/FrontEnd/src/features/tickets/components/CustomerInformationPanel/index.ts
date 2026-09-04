@@ -1,0 +1,1 @@
+export { CustomerInformationPanel } from './CustomerInformationPanel'

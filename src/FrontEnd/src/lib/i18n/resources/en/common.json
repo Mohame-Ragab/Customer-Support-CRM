@@ -1,0 +1,545 @@
+{
+  "app": {
+    "name": "Customer Support CRM"
+  },
+  "nav": {
+    "home": "Home",
+    "settings": "Settings",
+    "users": "Users",
+    "rolePermissions": "Role Permissions",
+    "auditLogs": "Audit Logs",
+    "systemConfiguration": "System Configuration",
+    "branding": "Branding",
+    "customers": "Customers",
+    "chatQueue": "Chat queue",
+    "liveChat": "Live chat",
+    "dashboard": "My Dashboard",
+    "managementDashboard": "Management Dashboard",
+    "quickReplies": "Quick Replies",
+    "knowledgeBase": "Knowledge Base",
+    "myTickets": "My Tickets",
+    "faqs": "FAQs"
+  },
+  "actions": {
+    "switchLanguage": "العربية",
+    "toggleTheme": "Toggle theme",
+    "logout": "Log out",
+    "goHome": "Go back home"
+  },
+  "auth": {
+    "login": {
+      "title": "Sign in",
+      "email": "Email",
+      "password": "Password",
+      "forgotPassword": "Forgot password?",
+      "noAccount": "Don't have an account?",
+      "registerLink": "Create one",
+      "submit": "Sign in",
+      "submitting": "Signing in…",
+      "errors": {
+        "invalidCredentials": "Invalid email or password.",
+        "emailNotVerified": "Please verify your email before signing in.",
+        "accountLocked": "Your account is temporarily locked. Try again later.",
+        "unknown": "Something went wrong. Please try again."
+      }
+    },
+    "register": {
+      "title": "Create account",
+      "email": "Email",
+      "password": "Password",
+      "confirmPassword": "Confirm password",
+      "submit": "Create account",
+      "hasAccount": "Already have an account?",
+      "loginLink": "Sign in"
+    },
+    "changePassword": {
+      "title": "Change password",
+      "fields": {
+        "current": "Current password",
+        "new": "New password",
+        "confirm": "Confirm new password"
+      },
+      "submit": "Update password",
+      "errors": {
+        "currentIncorrect": "The current password is incorrect.",
+        "policy": "The password does not meet security requirements.",
+        "mismatch": "Passwords do not match.",
+        "sameAsCurrent": "The new password must be different from the current password."
+      },
+      "success": "Password updated successfully."
+    },
+    "verify": {
+      "title": "Verify your email",
+      "verifying": "Verifying your email...",
+      "successTitle": "Email verified",
+      "successMessage": "Your email has been verified successfully. You can now sign in.",
+      "email": "Email address",
+      "resendButton": "Resend verification email",
+      "resending": "Sending email...",
+      "resendInstructions": "Didn't receive the email? Enter your email address to resend the verification link.",
+      "resendSuccess": "Verification email sent successfully. Please check your inbox.",
+      "backToLogin": "Back to sign in",
+      "errors": {
+        "invalidLink": "This verification link is invalid or has expired.",
+        "verificationFailed": "Email verification failed. Please try again.",
+        "resendFailed": "Failed to resend verification email. Please try again.",
+        "invalidEmail": "Please enter a valid email address."
+      }
+    },
+    "forgotPassword": {
+      "title": "Reset your password",
+      "instructions": "Enter your email address and we'll send you a link to reset your password.",
+      "email": "Email address",
+      "submit": "Send reset link",
+      "submitting": "Sending…",
+      "successTitle": "Reset link sent",
+      "successMessage": "If an account exists for that email, you'll receive a password reset link shortly.",
+      "checkEmail": "Please check your email for the reset link.",
+      "backToLogin": "Back to sign in",
+      "errors": {
+        "generic": "If an account exists for that email, you'll receive a password reset link shortly.",
+        "invalidEmail": "Please enter a valid email address."
+      }
+    },
+    "resetPassword": {
+      "title": "Create new password",
+      "newPassword": "New password",
+      "confirmPassword": "Confirm password",
+      "submit": "Reset password",
+      "submitting": "Resetting…",
+      "successTitle": "Password reset successful",
+      "successMessage": "Your password has been reset successfully. You can now sign in with your new password.",
+      "backToLogin": "Back to sign in",
+      "errorTitle": "Invalid link",
+      "invalidLink": "This password reset link is invalid or has expired.",
+      "errors": {
+        "generic": "Failed to reset password. Please try again.",
+        "passwordTooShort": "Password must be at least 8 characters long.",
+        "passwordMismatch": "Passwords do not match."
+      }
+    },
+    "profile": {
+      "title": "Profile",
+      "username": "Username",
+      "email": "Email address",
+      "phone": "Phone number",
+      "emailStatus": "Email status",
+      "emailVerified": "Verified",
+      "emailUnverified": "Unverified",
+      "roles": "Roles",
+      "notProvided": "Not provided",
+      "save": "Save changes",
+      "saving": "Saving…",
+      "success": "Profile updated successfully.",
+      "emailChangeWarning": "You changed your email address. You may need to verify it again to ensure full account access.",
+      "errors": {
+        "loadFailed": "Failed to load profile. Please try again.",
+        "updateFailed": "Failed to update profile. Please try again.",
+        "invalidEmail": "Please enter a valid email address.",
+        "invalidPhone": "Phone number must be between 6-20 characters and contain only numbers, spaces, dashes, and parentheses."
+      }
+    }
+  },
+  "users": {
+    "title": "Users",
+    "new": "New user",
+    "edit": "Edit user",
+    "search": "Search",
+    "allRoles": "All roles",
+    "empty": "No users found.",
+    "columns": {
+      "name": "Name",
+      "email": "Email",
+      "role": "Role",
+      "active": "Active",
+      "created": "Created"
+    },
+    "form": {
+      "fullName": "Full name",
+      "email": "Email",
+      "role": "Role",
+      "initialPassword": "Initial password",
+      "isActive": "Active"
+    },
+    "roles": {
+      "admin": "Administrator",
+      "supervisor": "Supervisor",
+      "manager": "Manager",
+      "agent": "Agent"
+    },
+    "status": {
+      "active": "Active",
+      "inactive": "Inactive"
+    },
+    "actions": {
+      "edit": "Edit",
+      "cancel": "Cancel",
+      "save": "Save"
+    },
+    "errors": {
+      "emailRequired": "Email is required.",
+      "emailInvalid": "Please enter a valid email address.",
+      "emailInUse": "A user with this email already exists.",
+      "passwordWeak": "Password must be at least 8 characters.",
+      "roleInvalid": "Please select a valid role.",
+      "fullNameRequired": "Full name is required (2-100 characters).",
+      "createFailed": "Failed to create user. Please try again.",
+      "updateFailed": "Failed to update user. Please try again."
+    }
+  },
+  "rolePermissions": {
+    "pageTitle": "Role Permissions",
+    "title": "Permissions",
+    "selectRole": "Select a role",
+    "noRoles": "No roles found.",
+    "empty": "No permissions defined.",
+    "errors": {
+      "toggleFailed": "Failed to update permission."
+    }
+  },
+  "auditLogs": {
+    "title": "Audit Logs",
+    "empty": "No audit entries found.",
+    "columns": {
+      "timestamp": "Timestamp (UTC)",
+      "actor": "Actor",
+      "action": "Action",
+      "entity": "Entity",
+      "summary": "Summary"
+    },
+    "errors": {
+      "forbidden": "You do not have permission to view audit logs."
+    },
+    "pagination": {
+      "next": "Next",
+      "prev": "Previous"
+    }
+  },
+  "systemConfiguration": {
+    "title": "System Configuration",
+    "description": "Runtime operational settings. Changes take effect immediately.",
+    "empty": "No settings found.",
+    "yes": "Yes",
+    "no": "No",
+    "columns": {
+      "key": "Key",
+      "type": "Type",
+      "value": "Value",
+      "description": "Description",
+      "required": "Required",
+      "actions": "Actions"
+    },
+    "save": "Save",
+    "saved": "Setting saved.",
+    "errors": {
+      "invalidValue": "The value is not valid for this setting.",
+      "required": "This setting is required and cannot be blank."
+    }
+  },
+  "branding": {
+    "title": "Branding",
+    "primaryColor": "Primary color",
+    "secondaryColor": "Secondary color",
+    "logo": "Logo",
+    "upload": "Upload logo",
+    "save": "Save",
+    "saved": "Branding saved.",
+    "invalidColor": "Enter a valid hex color (e.g. #1565c0).",
+    "invalidLogoType": "Unsupported logo file type.",
+    "logoTooLarge": "Logo must be 512 KB or smaller.",
+    "errors": {
+      "saveFailed": "Failed to save branding. Please try again."
+    }
+  },
+  "customers": {
+    "list": {
+      "title": "Customers",
+      "empty": "No customers found.",
+      "columns": {
+        "name": "Name",
+        "email": "Email",
+        "phone": "Phone",
+        "createdAt": "Created"
+      }
+    },
+    "detail": {
+      "title": "Customer Profile",
+      "notFound": "Customer not found",
+      "backToList": "Back to customers",
+      "sections": {
+        "profile": "Profile",
+        "contact": "Contact"
+      }
+    },
+    "interactionHistory": {
+      "title": "Interaction history",
+      "empty": "No prior interactions",
+      "error": "Could not load interaction history",
+      "loadMore": "Load more",
+      "type": {
+        "ticket": "Ticket",
+        "communication": "Message"
+      }
+    },
+    "notes": {
+      "empty": "No notes yet",
+      "placeholder": "Add a note…",
+      "add": "Add note"
+    },
+    "attachments": {
+      "empty": "No attachments yet",
+      "download": "Download",
+      "upload": "Upload file"
+    }
+  },
+  "tickets": {
+    "statusLabels": {
+      "new": "New",
+      "inProgress": "In Progress",
+      "resolved": "Resolved",
+      "closed": "Closed"
+    },
+    "customerPanel": {
+      "title": "Customer",
+      "tabs": {
+        "profile": "Profile",
+        "history": "History",
+        "notes": "Notes",
+        "attachments": "Attachments"
+      },
+      "errors": {
+        "loadFailed": "Could not load customer information",
+        "noCustomer": "No customer linked to this ticket"
+      }
+    },
+    "classification": {
+      "categoryLabel": "Category",
+      "priorityLabel": "Priority",
+      "save": "Save",
+      "saved": "Ticket updated",
+      "saveFailed": "Failed to save classification.",
+      "priorityLevels": {
+        "low": "Low",
+        "medium": "Medium",
+        "high": "High",
+        "urgent": "Urgent"
+      }
+    },
+    "history": {
+      "title": "Ticket history",
+      "empty": "No history yet",
+      "system": "System",
+      "events": {
+        "created": "Ticket created",
+        "categoryChanged": "Category changed",
+        "priorityChanged": "Priority changed",
+        "assignmentChanged": "Assignment changed",
+        "statusChanged": "Status changed",
+        "escalated": "Ticket escalated"
+      }
+    }
+  },
+  "emailChannel": {
+    "title": "Email",
+    "send": "Send reply",
+    "subject": "Subject",
+    "body": "Message",
+    "sent": "Reply sent.",
+    "sendFailed": "Failed to send email. The message was recorded but not delivered.",
+    "empty": "No messages yet",
+    "inboundBadge": "From customer",
+    "outboundBadge": "From agent",
+    "statusPending": "Pending",
+    "statusSent": "Sent",
+    "statusFailed": "Failed",
+    "statusReceived": "Received"
+  },
+  "chat": {
+    "startChat": "Live chat",
+    "send": "Send",
+    "placeholder": "Type a message…",
+    "noAgentAvailable": "No agent is available right now. We have opened a support ticket and an agent will reply shortly.",
+    "connecting": "Connecting…",
+    "disconnected": "Disconnected. Trying to reconnect…",
+    "queueEmpty": "No open chat sessions right now.",
+    "assignToMe": "Select a session to join"
+  },
+  "agentDashboard": {
+    "title": "My Dashboard",
+    "tasks": {
+      "title": "My Tasks",
+      "new": "New Task",
+      "edit": "Edit",
+      "delete": "Delete",
+      "cancel": "Cancel",
+      "save": "Save",
+      "overdue": "Overdue",
+      "completed": "Completed",
+      "empty": "No tasks yet",
+      "form": {
+        "description": "Description",
+        "dueAt": "Due date"
+      }
+    },
+    "tickets": {
+      "title": "My Assigned Tickets",
+      "errorTitle": "Error",
+      "emptyAssignedTickets": "You have no assigned tickets right now.",
+      "ticketsError": "We couldn't load your tickets. Please try again.",
+      "columns": {
+        "reference": "Reference",
+        "subject": "Subject",
+        "status": "Status",
+        "priority": "Priority",
+        "customer": "Customer",
+        "created": "Created"
+      }
+    }
+  },
+  "ticketInternalComments": {
+    "title": "Internal Notes",
+    "emptyState": "No internal notes yet",
+    "composerPlaceholder": "Add an internal note (staff only)…",
+    "submit": "Post",
+    "postedAt": "Posted at",
+    "errorLoad": "Could not load internal notes",
+    "errorSubmit": "Could not post the note. Please try again.",
+    "deletedUser": "Deleted user"
+  },
+  "quickReplies": {
+    "title": "Quick Replies",
+    "create": "New Template",
+    "edit": "Edit Template",
+    "delete": "Delete",
+    "name": "Name",
+    "body": "Body",
+    "search": "Search",
+    "emptyState": "No quick reply templates yet",
+    "pickerButton": "Quick reply",
+    "confirmDelete": "Delete this quick reply template?",
+    "errors": {
+      "nameRequired": "Name is required.",
+      "bodyRequired": "Body is required.",
+      "nameTooLong": "Name must be 100 characters or fewer.",
+      "bodyTooLong": "Body must be 4000 characters or fewer.",
+      "duplicateName": "You already have a template with this name."
+    }
+  },
+  "knowledgeBase": {
+    "title": "Knowledge Base",
+    "create": "New content",
+    "edit": "Edit content",
+    "confirmDelete": "Delete this item?",
+    "published": "Published",
+    "publishedYes": "Published",
+    "publishedNo": "Draft",
+    "allTypes": "All types",
+    "allLanguages": "All languages",
+    "notFound": "Content not found",
+    "type": {
+      "faq": "FAQ",
+      "article": "Article",
+      "solutionGuide": "Solution / Guide"
+    },
+    "language": {
+      "en": "English",
+      "ar": "Arabic"
+    },
+    "form": {
+      "title": "Title",
+      "type": "Type",
+      "language": "Language",
+      "summary": "Summary (optional)",
+      "body": "Body"
+    },
+    "list": {
+      "empty": "No content found."
+    },
+    "search": {
+      "placeholder": "Search articles…",
+      "empty": "No results found.",
+      "error": "Search failed. Please try again.",
+      "minChars": "Enter at least 2 characters."
+    }
+  },
+  "webForms": {
+    "title": "Contact support",
+    "name": "Your name",
+    "email": "Your email",
+    "subject": "Subject",
+    "message": "Message",
+    "submit": "Submit",
+    "submitFailed": "Something went wrong submitting your request. Please try again.",
+    "rateLimited": "Too many submissions. Please try again in a minute.",
+    "successTitle": "Request submitted",
+    "trackingCodeLabel": "Tracking code"
+  },
+  "portal": {
+    "submitTicket": {
+      "title": "Submit a Ticket",
+      "subject": "Subject",
+      "description": "Description",
+      "submit": "Submit"
+    },
+    "myTickets": {
+      "title": "My Tickets",
+      "empty": "You haven't submitted any tickets yet.",
+      "notFound": "Ticket not found"
+    }
+  },
+  "feedback": {
+    "title": "Leave Feedback",
+    "commentPlaceholder": "Tell us more (optional)…",
+    "submit": "Submit Feedback",
+    "thankYou": "Thank you for your feedback!",
+    "alreadySubmitted": "Feedback has already been submitted for this ticket."
+  },
+  "pages": {
+    "home": {
+      "title": "Welcome",
+      "body": "The Customer Support CRM frontend architecture is set up. Feature screens will appear here once implemented."
+    },
+    "notFound": {
+      "title": "Page not found",
+      "body": "The page you're looking for doesn't exist."
+    },
+    "dashboard": {
+      "title": "Management Dashboard",
+      "subtitle": "Ticket, agent, and satisfaction summaries at a glance.",
+      "widgets": {
+        "noData": "No data for this period",
+        "tickets": { "title": "Tickets" },
+        "agents": { "title": "Agent performance", "viewFull": "View agent report" },
+        "csat": { "title": "Customer satisfaction" }
+      }
+    }
+  },
+  "reports": {
+    "tickets": {
+      "total": "Total tickets (last 30 days)"
+    },
+    "agentPerformance": {
+      "title": "Agent Performance",
+      "from": "From",
+      "to": "To",
+      "agent": "Agent",
+      "ticketsAssigned": "Tickets assigned",
+      "ticketsResolved": "Tickets resolved",
+      "avgResolutionHours": "Avg. resolution (hrs)",
+      "noData": "No agent activity in this period",
+      "agentsActive": "Agents active (last 30 days)"
+    },
+    "csat": {
+      "responses": "{{count}} responses (last 30 days)"
+    }
+  },
+  "errors": {
+    "unexpected": "Something went wrong. Please try again.",
+    "network": "Could not reach the server. Check your connection and try again.",
+    "unauthorized": "Your session has expired. Please sign in again.",
+    "forbidden": "You don't have permission to do that.",
+    "notFound": "The requested resource was not found.",
+    "conflict": "This request could not be completed because of a conflict.",
+    "validation": "Please correct the highlighted fields."
+  }
+}
