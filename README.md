@@ -1,217 +1,364 @@
 # Customer Support CRM
 
-A full-stack Customer Support CRM: ticket management, multi-channel communication
-(email / live chat / web forms), a knowledge base, a self-service customer portal,
-an agent dashboard, management reporting, and role-based administration —
-built with an ASP.NET Core Web API backend and a React + TypeScript frontend.
+A full-stack Customer Support CRM for managing tickets, customers, and
+multi-channel communication — built with an **ASP.NET Core Web API** backend
+(Onion Architecture, CQRS/MediatR) and a **React + TypeScript** frontend.
 
-## Architecture
+It covers the full support workflow: ticket intake and lifecycle management,
+a self-service customer portal, an agent dashboard, a knowledge base,
+management reporting, and role-based administration — with full
+English/Arabic localization.
 
-**Backend** — ASP.NET Core Web API (.NET 10) on **Onion / Clean Architecture**:
+---
 
-- **Domain** — entities, enums, domain exceptions. No framework dependencies.
-- **Application** — CQRS via **MediatR** (commands/queries + handlers), DTOs,
-  **FluentValidation** validators, and the port interfaces (`IUnitOfWork`,
-  `IGenericRepository<T>`, `ICurrentUserService`, …) the outer layers implement.
-- **Infrastructure** — **Entity Framework Core** (SQL Server) implementing the
-  generic repository/unit-of-work pattern, **ASP.NET Core Identity**, JWT
-  issuing, email (MailKit/SMTP), and other external-facing services.
-- **API** — controllers, JWT bearer authentication, Swagger/OpenAPI, global
-  exception handling, localization middleware, SignalR (live chat).
+## 📋 Overview
 
-Cross-cutting:
-- **JWT authentication** with short-lived access tokens and **refresh-token
-  rotation** (single-use, replay-detected, revocable) — the refresh token
-  itself travels as an HttpOnly, SameSite cookie, never exposed to JavaScript.
-- **Role-based authorization** (`Admin`, `Supervisor`, `Manager`, `Agent`,
-  `Customer`) enforced on every protected endpoint.
-- **English / Arabic localization** (RTL-aware) on both backend (`Accept-Language`
-  → `SharedResource` resx) and frontend (i18next).
+Customer Support CRM lets a support organization manage customer
+relationships and tickets end to end:
 
-**Frontend** — **React 19 + TypeScript**, built with Vite:
+- Customers submit and track tickets through a self-service portal.
+- Agents work tickets from a dedicated dashboard with internal notes and
+  quick replies.
+- Managers monitor performance through reports and a management dashboard.
+- Administrators control roles, permissions, and system configuration.
 
-- **MUI** components, **TanStack Query** for server state, **React Hook Form**
-  for forms, **React Router** for routing/role-guarded routes.
-- Feature-sliced structure (`src/features/<feature>`), a single shared
-  Axios `apiClient` with request/response interceptors (auth header,
-  language header, silent token refresh).
-- **i18next** (English/Arabic) with automatic RTL layout switching.
-- **SignalR** client for the live chat channel.
+---
 
-## Implemented Features
+## ✨ Features
 
-- **Authentication & Identity** — registration, login, JWT access + refresh
-  tokens (rotation, revocation), logout, password reset/change, email
-  verification, seeded initial Admin account, Customer ↔ portal-account linking.
-- **Customer Management** — CRUD, notes, attachments, interaction history.
-- **Ticket Management** — creation, classification (category/priority),
-  assignment, status lifecycle, escalation, full audit history.
-- **Communication Channels** — inbound/outbound ticket email, live chat
-  (SignalR), public web-form ticket intake.
-- **Agent Dashboard** — personal task/reminder list, assigned-tickets view,
-  internal (staff-only) ticket comments, quick-reply templates.
-- **Knowledge Base** — article authoring/publishing, full-text search.
-- **Customer Portal** — self-service ticket submission and tracking, FAQ
-  browsing, post-resolution satisfaction feedback.
-- **Reports & Management** — ticket volume/status/category/priority reports,
-  agent performance reports, customer satisfaction reports, a management
-  dashboard summarizing all three.
-- **Security & Administration** — user management, role/permission
-  management, audit logs, system configuration.
-- **Platform** — multi-department support, custom branding, responsive layout,
-  full English/Arabic localization.
+### Authentication & Identity
 
-> **FR-047 (SLA Performance) was intentionally removed from scope** (it
-> depended on a deleted `sla-automation` prerequisite) and is not implemented.
+- Self-service registration
+- Login with JWT access tokens
+- Refresh-token rotation (single-use, revocable)
+- Logout with server-side token revocation
+- Password reset and change
+- Email verification
+- Role-based authorization
+- Seeded initial Admin account
 
-## Project Structure
+### Customer Management
 
-```
+- Customer CRUD
+- Customer notes
+- Customer attachments
+- Customer interaction history
+- Linking between a Customer record and its portal account
+
+### Ticket Management
+
+- Ticket creation and classification (category, priority)
+- Agent assignment
+- Status lifecycle management
+- Escalation
+- Full ticket audit history
+
+### Communication
+
+- Inbound/outbound ticket email
+- Live chat (SignalR)
+- Public web-form ticket intake
+
+### Agent Dashboard
+
+- Assigned-tickets view
+- Personal tasks and reminders
+- Internal (staff-only) ticket comments
+- Quick-reply templates
+- Customer information at a glance
+
+### Knowledge Base
+
+- Article authoring and publishing
+- Full-text search
+
+### Customer Portal
+
+- Self-service ticket submission
+- Ticket tracking and history
+- FAQ browsing
+- Post-resolution satisfaction feedback
+
+### Reports & Management
+
+- Ticket volume, status, category, and priority reports
+- Agent performance reports
+- Customer satisfaction reports
+- Management dashboard summarizing all reports
+
+### Security & Administration
+
+- User management
+- Role and permission management
+- Audit logs
+- System configuration
+
+### Platform
+
+- Multi-department support
+- Custom branding
+- Responsive layout
+- Full English/Arabic localization (RTL/LTR)
+- Swagger/OpenAPI documentation
+
+> **Note:** SLA Performance tracking was intentionally excluded from scope
+> and is not implemented.
+
+---
+
+## 🏗️ Architecture
+
+The backend follows **Onion (Clean) Architecture**:
+
+| Layer          | Responsibility                                                          |
+| -------------- | ------------------------------------------------------------------------ |
+| Domain         | Entities, enums, domain exceptions — no framework dependencies          |
+| Application    | CQRS via MediatR, DTOs, FluentValidation, port interfaces                |
+| Infrastructure | EF Core, ASP.NET Core Identity, generic repository/unit of work, email  |
+| API            | Controllers, JWT auth, Swagger, global exception handling, localization |
+
+Key patterns:
+
+- **CQRS / MediatR** — commands and queries with dedicated handlers.
+- **Generic Repository + Unit of Work** — `IGenericRepository<T>` /
+  `IUnitOfWork` abstract data access behind the Application layer.
+- **ASP.NET Core Identity** — user accounts, roles, and password hashing.
+- **JWT authentication** — short-lived access tokens.
+- **Refresh-token rotation** — single-use, replay-detected refresh tokens
+  transported via an HttpOnly cookie.
+
+The frontend is a **feature-sliced React application**: each feature owns
+its API calls, hooks, and components, backed by a shared Axios client and
+TanStack Query for server state.
+
+---
+
+## 🛠️ Technology Stack
+
+| Area               | Technology                    |
+| ------------------ | ------------------------------ |
+| Backend            | ASP.NET Core Web API           |
+| Framework          | .NET 10                        |
+| Database           | SQL Server                     |
+| ORM                | Entity Framework Core          |
+| Authentication     | ASP.NET Core Identity + JWT    |
+| Validation         | FluentValidation               |
+| Object Mapping     | AutoMapper                     |
+| Real-time          | SignalR                        |
+| Email              | MailKit                        |
+| API Documentation  | Swagger / OpenAPI              |
+| Frontend           | React 19 + TypeScript          |
+| Build Tool         | Vite                           |
+| State Management   | TanStack Query                 |
+| Forms              | React Hook Form                |
+| Routing            | React Router                   |
+| UI Components      | Material UI (MUI)               |
+| Localization       | i18next (English / Arabic)     |
+
+---
+
+## 📁 Project Structure
+
+```text
 CustomerSupportCRM/
 ├── src/
 │   ├── BackEnd/
 │   │   ├── CustomerSupportCRM.sln
-│   │   ├── docs/architecture.md          # backend architecture reference
+│   │   ├── docs/
+│   │   │   └── architecture.md
 │   │   └── src/
 │   │       ├── CustomerSupportCRM.Domain
 │   │       ├── CustomerSupportCRM.Application
 │   │       ├── CustomerSupportCRM.Infrastructure
 │   │       └── CustomerSupportCRM.API
+│   │
 │   └── FrontEnd/
-│       ├── docs/frontend-architecture.md # frontend architecture reference
+│       ├── docs/
+│       │   └── frontend-architecture.md
 │       └── src/
-│           ├── features/                 # one folder per feature slice
-│           ├── pages/, routes/, layouts/
-│           ├── lib/ (api client, auth, i18n, query)
-│           └── components/ui             # shared presentational components
-└── .squad/                               # planning artifacts (stories/plans), not application code
+│           ├── features/        # one folder per feature slice
+│           ├── pages/
+│           ├── routes/
+│           ├── layouts/
+│           ├── lib/              # API client, auth, i18n, query setup
+│           └── components/ui     # shared presentational components
+│
+├── .squad/                       # planning artifacts (stories/plans) — not application code
+├── .gitignore
+└── README.md
 ```
 
-## Prerequisites
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
 
 - [.NET SDK 10.0](https://dotnet.microsoft.com/download)
 - [Node.js](https://nodejs.org/) 20+ and npm
-- SQL Server (LocalDB, Developer, or Express edition) reachable from your
-  machine
+- SQL Server (LocalDB, Developer, or Express edition)
 
-## Backend Setup
-
-```bash
-cd src/BackEnd
-dotnet restore
-dotnet build CustomerSupportCRM.sln
-```
-
-Configure the database connection and JWT secret first (see
-[Configuration](#configuration) below), then run the API:
+### 1. Clone the Repository
 
 ```bash
-cd src/CustomerSupportCRM.API
-dotnet run
+git clone <repository-url>
+cd CustomerSupportCRM
 ```
 
-By default this listens on `http://localhost:5025` and
-`https://localhost:7125` (see `Properties/launchSettings.json`).
+### 2. Backend Configuration
 
-## Database Setup
+Before running the API, configure the following in
+`src/BackEnd/src/CustomerSupportCRM.API/appsettings.Development.json`
+(or via environment variables):
 
-The backend targets **SQL Server** via EF Core. Set your connection string in
-`appsettings.Development.json` (or an environment variable — see
-[Configuration](#configuration)), then apply migrations from the API project
-directory:
+- `ConnectionStrings:DefaultConnection` — your SQL Server connection string
+- `Jwt:SecretKey` — a strong signing key for local development
+- `AdminSeed:Email` / `AdminSeed:Password` — optional, seeds an initial
+  Admin account on first run
+
+> These values ship as either empty or clearly-labeled development
+> placeholders. Replace them with your own — never commit real credentials.
+
+### 3. Database
+
+Apply the EF Core migrations from the API project directory:
 
 ```bash
 cd src/BackEnd/src/CustomerSupportCRM.API
 dotnet ef database update --project ../CustomerSupportCRM.Infrastructure --startup-project .
 ```
 
-This creates the schema and applies all migrations (Identity tables, tickets,
-customers, communication channels, agent-dashboard, knowledge base, customer
-feedback, and the Customer↔ApplicationUser link). On startup, the API also
-seeds:
-- the standard roles (`Admin`, `Supervisor`, `Manager`, `Agent`, `Customer`),
-- the `Admin` role's default permission set, and
-- an initial Admin account, **if** `AdminSeed:Email` / `AdminSeed:Password`
-  are configured (see below) — idempotent, safe to run repeatedly.
+Then build and run the backend:
 
-## Frontend Setup
+```bash
+cd src/BackEnd
+dotnet restore
+dotnet build CustomerSupportCRM.sln
+
+cd src/CustomerSupportCRM.API
+dotnet run
+```
+
+The API listens on `http://localhost:5025` and `https://localhost:7125`
+by default (see `Properties/launchSettings.json`).
+
+### 4. Frontend
 
 ```bash
 cd src/FrontEnd
 npm install
-cp .env.example .env.local   # then adjust VITE_API_BASE_URL if needed
+cp .env.example .env.local   # adjust VITE_API_BASE_URL if needed
 npm run dev
 ```
 
-Available scripts (`package.json`):
+| Command           | Purpose                                     |
+| ------------------ | -------------------------------------------- |
+| `npm run dev`       | Start the Vite dev server                    |
+| `npm run build`     | Type-check and produce a production build    |
+| `npm run preview`   | Serve the production build locally           |
+| `npm run lint`      | Run ESLint                                   |
+| `npm run format`    | Run Prettier                                 |
 
-| Command                                   | Purpose                                              |
-| ------------------------------------------ | ----------------------------------------------------- |
-| `npm run dev`                              | Start the Vite dev server                             |
-| `npm run build`                            | Type-check (`tsc -b`) and produce a production build |
-| `npm run preview`                          | Serve the production build locally                    |
-| `npm run lint`                             | ESLint                                                |
-| `npm run format` / `npm run format:check`  | Prettier                                              |
+---
 
-## Authentication
+## 🔐 Authentication & Authorization
 
-- **Register** (`POST /api/v1/auth/register`) — self-service sign-up; creates
-  an `ApplicationUser` in the `Customer` role and a linked `Customer` CRM
-  record. Staff accounts (`Admin`/`Supervisor`/`Manager`/`Agent`) are created
-  by an Administrator through user management, not self-registration.
-- **Login** (`POST /api/v1/auth/login`) — returns a short-lived JWT access
-  token; the refresh token is set as an HttpOnly cookie.
-- **Admin access** — an initial Admin account is seeded on first run from the
-  `AdminSeed` configuration (see [Configuration](#configuration)).
-- **Roles** — `Admin`, `Supervisor`, `Manager`, `Agent`, `Customer`; enforced
-  via `[Authorize(Roles = ...)]` on every protected endpoint.
-- **Access token** — short-lived JWT, sent as `Authorization: Bearer <token>`.
+- **Register** — self-service sign-up creates an account in the `Customer`
+  role, linked to a Customer CRM record.
+- **Login** — returns a short-lived JWT access token; the refresh token is
+  set as an HttpOnly cookie.
+- **Access token** — sent as `Authorization: Bearer <token>`.
 - **Refresh token** — long-lived, single-use, rotated on every refresh,
-  revocable, transported only via an HttpOnly/SameSite cookie
-  (`POST /api/v1/auth/refresh`).
-- **Logout** (`POST /api/v1/auth/logout`) — revokes the refresh token
-  server-side and clears the cookie.
+  transported only via an HttpOnly/SameSite cookie.
+- **Logout** — revokes the refresh token server-side and clears the cookie.
 
-## Localization
+Roles:
 
-- **English** and **Arabic** are fully supported end to end: backend
-  validation/error messages (`Accept-Language` → `SharedResource`/`.ar.resx`)
-  and frontend UI copy (i18next, `src/FrontEnd/src/lib/i18n/resources/{en,ar}`).
-- The frontend automatically switches between **LTR** (English) and **RTL**
-  (Arabic) layout based on the selected language.
+- Admin
+- Supervisor
+- Manager
+- Agent
+- Customer
 
-## Swagger
+Roles are enforced on every protected endpoint. Staff accounts are created
+by an Administrator through user management, not self-registration.
 
-With the API running in the `Development` environment, open:
+---
+
+## 🌍 Localization
+
+- Full **English** and **Arabic** support.
+- Automatic **RTL / LTR** layout switching on the frontend.
+- Backend validation and error messages localize via `Accept-Language`.
+- Frontend UI copy localizes via i18next.
+
+---
+
+## 📚 API Documentation
+
+With the backend running in the `Development` environment, Swagger UI is
+available at:
 
 ```
 https://localhost:7125/swagger
 ```
 
-for interactive API documentation, including the JWT Bearer auth scheme (use
-the "Authorize" button with a token obtained from `/api/v1/auth/login`).
+(the exact port depends on your local `launchSettings.json`.) Use the
+**Authorize** button with a token obtained from `/api/v1/auth/login`.
 
-## Configuration
+---
 
-All backend configuration lives in `src/BackEnd/src/CustomerSupportCRM.API/appsettings*.json`,
-overridable by environment variables (`Section__Key=value`) or `dotnet user-secrets`
-for local development. **No real secrets are committed** — every sensitive
-value ships empty in `appsettings.json`/`appsettings.Production.json`, or as
-an obviously-fake, clearly-labeled placeholder in `appsettings.Development.json`
-(safe for local development only — replace it for anything beyond your own
-machine).
+## 🗄️ Database
 
-| Setting | Where | Purpose |
-| --- | --- | --- |
-| `ConnectionStrings:DefaultConnection` | `appsettings.json` | SQL Server connection string. Ships with Windows Integrated Security against a local `.` instance — replace with your own server/credentials. |
-| `Jwt:SecretKey` | `appsettings.Development.json` (dev placeholder) / env var in other environments | JWT signing key. **Must** be set to a strong, private value outside local development. |
-| `AdminSeed:Email` / `AdminSeed:Password` | `appsettings.Development.json` (dev placeholder) / env var (`AdminSeed__Email` / `AdminSeed__Password`) | Seeds one initial Admin account on startup. Empty by default (`appsettings.json`) — seeding is skipped entirely if unset. |
-| `Email:*` | `appsettings.Development.json` / env vars | SMTP settings for the email communication channel (optional locally). |
-| `VITE_API_BASE_URL` | `src/FrontEnd/.env.local` (copy from `.env.example`) | Base URL the frontend uses to reach the backend API. |
+- **SQL Server**, accessed through **Entity Framework Core**.
+- Schema managed entirely through EF Core migrations — see
+  `src/BackEnd/src/CustomerSupportCRM.Infrastructure/Persistence/Migrations`.
+- Includes ASP.NET Core Identity tables alongside the CRM domain schema
+  (customers, tickets, communication channels, knowledge base, reports).
+- A Customer CRM record can be linked to its portal `ApplicationUser`
+  (one Customer per user, optional).
 
-## Documentation
+No database credentials are stored in the repository.
+
+---
+
+## 🔒 Security
+
+- JWT-based authentication with short-lived access tokens.
+- Refresh tokens transported only via an **HttpOnly, SameSite** cookie —
+  never exposed to frontend JavaScript.
+- Single-use refresh-token rotation with **replay detection**.
+- Role-based authorization on every protected endpoint.
+- Password hashing via **ASP.NET Core Identity**.
+- All secrets are supplied through configuration/environment variables —
+  no secrets are committed to source control.
+
+---
+
+## 📌 Project Status
+
+```text
+Status:        Completed
+Features:      Implemented
+Backend:       Build passing
+Frontend:      Build passing
+Database:      Migrations applied
+Localization:  Arabic / English
+```
+
+---
+
+## 📝 Notes
+
+- Some configuration values (JWT signing key, Admin seed credentials)
+  ship as empty or clearly-labeled development placeholders. Set your own
+  values before running outside your local machine.
+- `.squad/` contains planning artifacts used during development and is not
+  part of the running application.
+
+---
+
+## 📄 Documentation
 
 - Backend architecture reference: [`src/BackEnd/docs/architecture.md`](src/BackEnd/docs/architecture.md)
 - Frontend architecture reference: [`src/FrontEnd/docs/frontend-architecture.md`](src/FrontEnd/docs/frontend-architecture.md)
-#   C u s t o m e r - S u p p o r t - C R M  
- 
